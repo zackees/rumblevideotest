@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-
     </head>
     <body>
         <h1>Video Test for Plandemic</h1>
         <h4>Checkout the subtitles!</h4>
+        <h4>Click anywhere to play the video (for the first time)</h4>
         <script>
+            const RUMBLE_URL = "https://rumble.com/embedJS/urq2e0"
             ! function(r, u, m, b, l, e) {
                 r._Rumble = b, r[b] || (r[b] = function() {
                     (r[b]._ = r[b]._ || []).push(arguments);
                     if (r[b]._.length == 1) {
-                        l = u.createElement(m), e = u.getElementsByTagName(m)[0], l.async = 1, l.src = "https://rumble.com/embedJS/urq2e0" + (arguments[1].video ? '.' + arguments[1].video : '') + "/?url=" + encodeURIComponent(location.href) + "&args=" + encodeURIComponent(JSON.stringify([].slice.apply(arguments))), e.parentNode.insertBefore(l, e)
+                        l = u.createElement(m), e = u.getElementsByTagName(m)[0], l.async = 1, l.src = RUMBLE_URL + (arguments[1].video ? '.' + arguments[1].video : '') + "/?url=" + encodeURIComponent(location.href) + "&args=" + encodeURIComponent(JSON.stringify([].slice.apply(arguments))), e.parentNode.insertBefore(l, e)
                     }
                 })
             }(window, document, "script", "Rumble");
@@ -19,7 +20,28 @@
 
         <div id="rumble_v2m0szs"></div>
         <script>
-            Rumble("play", {"video":"v2m0szs","div":"rumble_v2m0szs"});
+            Rumble("play", {video:"v2m0szs",div:"rumble_v2m0szs", rel: 5, ia: 1});
+
+            let jobId = setInterval(() => {
+                let videos = document.getElementsByTagName('video');
+                if (videos.length < 1) {
+                    return
+                }
+
+                // Define the click handler
+                function handleClick() {
+                    for (let i = 0; i < videos.length; i++) {
+                        let video = videos[i];
+                        video.play();
+                    }
+                    // Remove the click handler after one click
+                    document.body.removeEventListener('click', handleClick);
+                }
+
+                // Add the click handler
+                document.body.addEventListener('click', handleClick);
+                clearInterval(jobId);
+            }, 8);
         </script>
     </body>
-</ht
+</html>
