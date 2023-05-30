@@ -1,68 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="signup.css" />
-        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
-    </head>
-    <body>
-        <h1>Video Test for Plandemic</h1>
-        <h4>Checkout the subtitles!</h4>
-        <h4>See that the video goes up to 1080p</h4>
-        <h4>Click anywhere to play the video (for the first time)</h4>
 
-        <script>!function(r,u,m,b,l,e){r._Rumble=b,r[b]||(r[b]=function(){(r[b]._=r[b]._||[]).push(arguments);if(r[b]._.length==1){l=u.createElement(m),e=u.getElementsByTagName(m)[0],l.async=1,l.src="https://rumble.com/embedJS/urq2e0"+(arguments[1].video?'.'+arguments[1].video:'')+"/?url="+encodeURIComponent(location.href)+"&args="+encodeURIComponent(JSON.stringify([].slice.apply(arguments))),e.parentNode.insertBefore(l,e)}})}(window, document, "script", "Rumble");</script>
+<head>
+    <link rel="stylesheet" href="signup.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+    <!-- Add this style block to apply the font to the entire body of the document -->
+    <!-- TODO audit which webfonts are actually necessary -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,500|Oswald:400"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,700,700i"/>
 
-        <div id="rumble_v2nwlhq"></div>
-        <script>
-        Rumble("play", {"video":"v2nwlhq","div":"rumble_v2nwlhq"});
-        </script>
-        <script>
-            let jobId = setInterval(() => {
-                let videos = document.getElementsByTagName('video');
-                if (videos.length < 1) {
-                    return
+    <link href="https://fonts.googleapis.com/css2?family=B612+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Open Sans", Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Video Test for Plandemic</h1>
+    <h4>Checkout the subtitles!</h4>
+    <h4>See that the video goes up to 1080p</h4>
+    <h4>Click anywhere to play the video (for the first time)</h4>
+
+    <script>!function (r, u, m, b, l, e) { r._Rumble = b, r[b] || (r[b] = function () { (r[b]._ = r[b]._ || []).push(arguments); if (r[b]._.length == 1) { l = u.createElement(m), e = u.getElementsByTagName(m)[0], l.async = 1, l.src = "https://rumble.com/embedJS/urq2e0" + (arguments[1].video ? '.' + arguments[1].video : '') + "/?url=" + encodeURIComponent(location.href) + "&args=" + encodeURIComponent(JSON.stringify([].slice.apply(arguments))), e.parentNode.insertBefore(l, e) } }) }(window, document, "script", "Rumble");</script>
+
+    <div id="rumble_v2nwlhq"></div>
+    <script>
+        Rumble("play", { "video": "v2nwlhq", "div": "rumble_v2nwlhq" });
+    </script>
+    <script>
+        let jobId = setInterval(() => {
+            let videos = document.getElementsByTagName('video');
+            if (videos.length < 1) {
+                return
+            }
+            // Define the click handler
+            function handleClick() {
+                for (let i = 0; i < videos.length; i++) {
+                    let video = videos[i];
+                    video.play();
                 }
-                // Define the click handler
-                function handleClick() {
-                    for (let i = 0; i < videos.length; i++) {
-                        let video = videos[i];
-                        video.play();
-                    }
-                    // Remove the click handler after one click
-                    document.body.removeEventListener('click', handleClick);
-                }
-                // Add the click handler
-                document.body.addEventListener('click', handleClick);
-                clearInterval(jobId);
-            }, 8);
-        </script>
+                // Remove the click handler after one click
+                document.body.removeEventListener('click', handleClick);
+            }
+            // Add the click handler
+            document.body.addEventListener('click', handleClick);
+            clearInterval(jobId);
+        }, 8);
+    </script>
 
-        <section id="signup" class="active">
-            <div id="signup-close-btn" class="close-btn">
-                <i class="fa fa-times"></i>
+    <section id="signup" class="active">
+        <div id="signup-close-btn" class="close-btn">
+            <i class="fa fa-times"></i>
+        </div>
+        <h2>Watch Plandemic 3: The Great Awakening</h2>
+        <p>Enter your email to view the film.</p>
+        <!-- Input form for first name and email -->
+        <form method="get" accept-charset="UTF-8" name="oi_form"
+            action="https://track.namastelight.com/oi/443/ea6fb9747e711254221646eeb5c0596b" style="margin-bottom: 0px;">
+            <div>
+                <input type="email" value="" name="email" placeholder="  Email"
+                    style="background-color:rgba(255, 255, 255, .97);">
             </div>
-            <h2>Watch Plandemic 3: The Great Awakening</h2>
-            <p>Enter your email to view the film.</p>
-            <!-- Input form for first name and email -->
-            <form method="get" accept-charset="UTF-8" name="oi_form" action="https://track.namastelight.com/oi/443/ea6fb9747e711254221646eeb5c0596b" style="margin-bottom: 0px;">
-                <div>
-                    <input type="email" value="" name="email" placeholder="Email" style="background-color:rgba(255, 255, 255, .97);">
-                </div>
-                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f8f8f8f8f8f8f8f8f8f8f8_f8f8f8f8f8f8f8f8f8f8f8" tabindex="-1" value=""></div>
-                <div class="clear">
-                    <input type="submit" value="Watch Now" id="btn-signup" class="button">
-                </div>
-                <p id="signup-privacy-statement">
-                    By signing up, you agree to receive occasional emails from us and may choose to unsubscribe at anytime. View our
-                    <a href="#">Privacy Policy.</a>
-                </p>
-            </form>
-        </section>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                    name="b_f8f8f8f8f8f8f8f8f8f8f8_f8f8f8f8f8f8f8f8f8f8f8" tabindex="-1" value=""></div>
+            <div class="clear">
+                <input type="submit" value="Watch Now" id="btn-signup" class="button">
+            </div>
+            <p id="signup-privacy-statement">
+                By signing up, you agree to receive occasional emails from us and may choose to unsubscribe at anytime.
+                View our
+                <a href="#">Privacy Policy.</a>
+            </p>
+        </form>
+    </section>
     <script src="signup.js"></script>
     <script>
         initSignup();
         signupSetActive(true);
     </script>
-    </body>
+</body>
+
 </html>

@@ -23,6 +23,7 @@
     /* shadow */
     box-shadow: 0 0 2px #00000080;
     z-index: 4;
+    /* font-family: "Open Sans", sans-serif; */
   }
   
   #signup.active {
@@ -32,13 +33,39 @@
     transition: all 0.5s ease-in-out;
   }
   
-  /* All elements contained by #signup */
-  #signup > * {
-    /* Center the element */
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5px;
-    margin-top: 5px;
+
+  #signup input {
+    font-size: 1em;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  }
+
+
+  #signup input[type="email"] {
+    padding: .7em 0em .7em 0em;
+    border: 1px solid #999;
+    border-radius: 2px;
+    font-size: 1em;
+    width: 100%;
+  }
+
+
+  #signup input[type="submit"] {
+    padding: .7em 1em .7em 1em;
+    border: 1px solid rgb(119, 119, 119);
+    border-radius: 2px;
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: .10em;
+    font-weight: 500;
+    color: #777;
+    box-shadow: inset 0 0 0 2px #eaeaea;
+
+  }
+
+  #signup > h2 {
+    text-transform: uppercase;
+    color: rgb(119, 119, 119);
+    letter-spacing: .10em;
   }
   
   #signup-privacy-statement {
