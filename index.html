@@ -79,7 +79,9 @@
     </section>
     <script src="signup.js"></script>
     <script>
-        initSignup();
+        initSignup(function() {
+            console.log('signup closed');
+        });
         signupSetActive(true);
     </script>
 </body>
