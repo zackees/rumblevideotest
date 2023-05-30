@@ -1,19 +1,6 @@
 
-let signupActive = false
+let signupActive = true
 let callbackDismissed = null
-
-// Note, do not use directly, this is for router only.
-function signupSetActive(on) {
-    const $signup = document.querySelector('#signup')
-    if (on) {
-        $signup.classList.add('active')
-        //pageWrapperSetFocus(false)
-    } else {
-        $signup.classList.remove('active')
-        //pageWrapperSetFocus(true)
-    }
-    signupActive = on
-}
 
 function signupIsActive() {
     return signupActive
@@ -21,6 +8,8 @@ function signupIsActive() {
 
 function initSignup(cbDismissed) {
     callbackDismissed = cbDismissed
+    const $signup = document.querySelector('#signup')
+    $signup.classList.add('active')
     /*
     if (!signupFrag) {
       globalThis.alert('signup html not found')
@@ -46,12 +35,15 @@ function initSignup(cbDismissed) {
           }
         }
         */
-        const $signup = document.querySelector('#signup')
         $signup.classList.remove('active')
         e.preventDefault()
         e.stopPropagation()
         // remove click handler
         signupCloseBtn.removeEventListener('click', arguments.callee)
+        setTimeout(() => {
+            let $signup = document.querySelector('#signup')
+            $signup.style.display = 'none'
+        }, 1000)
         callbackDismissed()
         //if (window.location.hash === '#signup') {
         //  window.location.hash = ''
