@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="signup.css" />
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
     </head>
     <body>
         <h1>Video Test for Plandemic</h1>
@@ -20,7 +22,6 @@
                 if (videos.length < 1) {
                     return
                 }
-
                 // Define the click handler
                 function handleClick() {
                     for (let i = 0; i < videos.length; i++) {
@@ -30,11 +31,38 @@
                     // Remove the click handler after one click
                     document.body.removeEventListener('click', handleClick);
                 }
-
                 // Add the click handler
                 document.body.addEventListener('click', handleClick);
                 clearInterval(jobId);
             }, 8);
         </script>
+
+        <section id="signup" class="active">
+            <div id="signup-close-btn" class="close-btn">
+                <i class="fa fa-times"></i>
+            </div>
+            <h2>Plandemic 3 World Premier</h2>
+            <p>Enter your email to watch the movie.</p>
+            <!-- Input form for first name and email -->
+            <form method="get" accept-charset="UTF-8" name="oi_form" action="https://track.namastelight.com/oi/443/ea6fb9747e711254221646eeb5c0596b" style="margin-bottom: 0px;">
+                <div>
+                    <input type="email" value="" name="email" placeholder="Email" style="background-color:rgba(255, 255, 255, .97);">
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f8f8f8f8f8f8f8f8f8f8f8_f8f8f8f8f8f8f8f8f8f8f8" tabindex="-1" value=""></div>
+                <div class="clear">
+                    <input type="submit" value="Signup" id="btn-signup" class="button">
+                </div>
+                <p id="signup-privacy-statement">
+                    By signing up, you agree to receive occasional emails from us and may choose to unsubscribe at anytime. View our
+                    <a href="#">Privacy Policy.</a>
+                </p>
+            </form>
+        </section>
+    <script src="signup.js"></script>
+    <script>
+        initSignup();
+        signupSetActive(true);
+    </script>
     </body>
 </html>

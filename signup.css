@@ -1,0 +1,77 @@
+
+/* stylelint-disable color-function-notation,declaration-block-no-redundant-longhand-properties */
+
+#signup {
+    position: fixed;
+    color: black;
+  
+    /* Center the element */
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    max-width: 90vw;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 97%);
+    border-radius: 2px;
+    border: 1px solid rgba(128, 128, 128, 20%);
+    opacity: 0;
+    pointer-events: none;
+    padding: 2em;
+    filter: blur(5px);
+    transition: all 0.25s ease-in-out;
+  
+    /* shadow */
+    box-shadow: 0 0 2px #00000080;
+    z-index: 4;
+  }
+  
+  #signup.active {
+    opacity: 1;
+    pointer-events: all;
+    filter: blur(0);
+    transition: all 0.5s ease-in-out;
+  }
+  
+  /* All elements contained by #signup */
+  #signup > * {
+    /* Center the element */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  
+  #signup-privacy-statement {
+    font-size: x-small;
+    color: #999;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  
+  #btn-signup {
+    /* smaller size */
+    font-size: smaller;
+    margin-top: 10px;
+  }
+  
+  #signup-close-btn {
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #999;
+    top: -0.5em;
+    left: -0.5em;
+    cursor: pointer;
+  
+    /* use fa fa-times as the icon */
+    font-family: FontAwesome; /* stylelint-disable-line */
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 1.5em;
+    color: #999;
+    margin: 0;
+    padding: 0;
+  }
+  
