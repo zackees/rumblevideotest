@@ -1,9 +1,9 @@
 
-let signupActive = true
 let callbackDismissed = null
 
 function signupIsActive() {
-    return signupActive
+    const $signup = document.querySelector('#signup');
+    return $signup.classList.contains('active')
 }
 
 function initSignup(cbDismissed) {
