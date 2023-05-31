@@ -1,5 +1,11 @@
   /* All elements contained by #signup */
-* {
-    /* Center the element */
-    font-weight: normal;
+  * {
+      /* Center the element */
+      font-weight: normal;
+  }
+
+
+  body {
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      font-weight: 300;
   }
