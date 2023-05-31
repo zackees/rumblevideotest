@@ -30,7 +30,7 @@
         <form method="get" accept-charset="UTF-8" name="oi_form"
             action="https://track.namastelight.com/oi/443/ea6fb9747e711254221646eeb5c0596b" style="margin-bottom: 0px;">
             <div>
-                <input type="email" value="" name="email" placeholder="  Email"
+                <input type="email" value="" name="email" placeholder="Email"
                     style="background-color:rgba(255, 255, 255, .97);">
             </div>
             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
@@ -47,50 +47,9 @@
         </form>
     </section>
 
-    <script>!function (r, u, m, b, l, e) { r._Rumble = b, r[b] || (r[b] = function () { (r[b]._ = r[b]._ || []).push(arguments); if (r[b]._.length == 1) { l = u.createElement(m), e = u.getElementsByTagName(m)[0], l.async = 1, l.src = "https://rumble.com/embedJS/urq2e0" + (arguments[1].video ? '.' + arguments[1].video : '') + "/?url=" + encodeURIComponent(location.href) + "&args=" + encodeURIComponent(JSON.stringify([].slice.apply(arguments))), e.parentNode.insertBefore(l, e) } }) }(window, document, "script", "Rumble");</script>
-    <script>
-        Rumble("play", { "video": "v2nwlhq", "div": "rumble_v2nwlhq" });
-        const $divRumble = document.getElementById('rumble_v2nwlhq');
-        $divRumble.addEventListener('click', function (e) {
-            if (signupIsActive()) {
-                e.preventDefault();
-                e.stopPropagation();
-                return;
-            }
-        }, true);
-    </script>
-
-    <script>
-        let jobId = setInterval(() => {
-            let videos = document.getElementsByTagName('video');
-            if (videos.length < 1) {
-                return
-            }
-            // Define the click handler
-            function handleBodyClick() {
-                if (signupIsActive()) {
-                    return;
-                }
-                for (let i = 0; i < videos.length; i++) {
-                    let video = videos[i];
-                    video.play();
-                }
-                // Remove the click handler after one click
-                document.body.removeEventListener('click', handleBodyClick);
-            }
-            // Add the click handler
-            document.body.addEventListener('click', handleBodyClick);
-            clearInterval(jobId);
-        }, 8);
-    </script>
-
     <script src="signup.js"></script>
+    <script src="index.js"></script>
 
-    <script>
-        initSignup(function () {
-            console.log('signup closed');
-        });
-    </script>
 
 </body>
 

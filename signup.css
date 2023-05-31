@@ -46,7 +46,7 @@
 
 
 #signup input[type="email"] {
-    padding: .7em 0em .7em 0em;
+    padding: .7em 0em .7em .7em;
     border: 1px solid #999;
     border-radius: 2px;
     font-size: 1em;
