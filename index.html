@@ -78,37 +78,42 @@
             // When the rumble video element (from above) appears, attach a click handler
             // to it. This should work with any rumble copy and paste.
             let jobId = setInterval(() => {
-                let videos = document.getElementsByTagName('video');
-                if (videos.length < 1) {
-                    return
-                }
-                // Define the click handler
-                function handleBodyClick() {
-                    if (signupIsActive()) {
-                        return;
+                function findVideo(expectedParentId) {
+                    let videos = document.getElementsByTagName('video');
+                    if (videos.length < 1) {
+                        return null;
                     }
                     for (let i = 0; i < videos.length; i++) {
                         let video = videos[i];
                         let parentElement = video.parentElement;
-                        let found = false;
                         while (parentElement != null) {
-                            if (parentElement.id === $divRumble.id) {
-                                video.play();
-                                found = true;
-                                break;
+                            if (parentElement.id === expectedParentId) {
+                                return video;
                             }
                             parentElement = parentElement.parentElement;
                         }
-                        if (!found) {
-                            alert("Didn't find rumble_v2nwlhq as an ancestor")
-                        }
                     }
+                    return null;
+                }
+                // Check if the video is there
+                let video = findVideo($divRumble.id);
+                if (video == null) {
+                    // Bail for this iteration.
+                    return;
+                }
+
+                function handleBodyClick() {
+                    // body clicks should only play the video if the signup is not active
+                    if (signupIsActive()) {
+                        return;
+                    }
+                    video.play();
                     // Remove the click handler after one click
-                    document.body.removeEventListener('click', handleBodyClick);
+                    document.body.removeEventListener('click', arguments.callee);
                 }
                 // Add the click handler
                 document.body.addEventListener('click', handleBodyClick);
-                clearInterval(jobId);
+                clearInterval(jobId);  // Only attach click handler once.
             }, 16);
         }
         attachVideoClickHandler();
