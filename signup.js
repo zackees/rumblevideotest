@@ -124,7 +124,11 @@ function initSignup(cbDismissed) {
     $signup = document.querySelector('#signup')
     $signupCloseBtn = document.querySelector('#signup-close-btn')
     let hasSignedUpCompleted = getCookie("hasSignedUpCompleted")
-    if (hasSignedUpCompleted) {
+    const urlParams = new URLSearchParams(window.location.search);
+    // Check if the "signup" parameter is set to "True"
+    const signupParam = urlParams.get('signup');
+    const forceSignup = signupParam ? signupParam.toLowerCase() === 'true' : false;
+    if (hasSignedUpCompleted && !forceSignup) {
         //$signup.classList.remove('active')
         return
     }
