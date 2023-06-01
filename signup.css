@@ -53,6 +53,9 @@
     width: 100%;
 }
 
+#signup input[type="email"] {
+    margin-top: 10px;
+}
 
 #signup input[type="submit"] {
     padding: .7em 1em .7em 1em;
@@ -84,6 +87,10 @@
     /* smaller size */
     font-size: smaller;
     margin-top: 10px;
+}
+
+#btn-signup:active {
+    background-color: #ffffff; /* Replace with your desired color on click */
 }
 
 #signup-close-btn {
