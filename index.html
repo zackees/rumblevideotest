@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,700,700i" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=B612+Mono&display=swap">
-
 </head>
 
 <body>
@@ -45,25 +44,76 @@
                 View our
                 <a href="#">Privacy Policy.</a>
             </p>
+            <div id="text-privacy-policy" style="display: none" ;>
+                <p style="font-size:10px;"><b>Privacy Policy</b></p>
+                <p style="font-size:10px;">We respect your privacy and are committed to protecting it. We collect your
+                    email for film updates, but we won't share it with anyone. You can unsubscribe at any time.</p>
+                <p style="font-size:10px;">If you have questions about this Privacy Policy, please contact us.</p>
+            </div>
         </form>
     </section>
-
     <!-- Dialog for invalid email -->
     <dialog id="dialogBox">
         <p id="dialogBoxmMessage">Invalid email, please try again.</p>
         <button id="closeBtn">Close</button>
     </dialog>
-
     <script src="signup.js"></script>
-    <script src="index.js"></script>
-
-
-
     <script>
-
-
+        // THIS SECTION IS AUTO-GNERATED BY RUMBLE. YOU CAN REPLACE THIS WITH
+        // AN EMBED CODE FROM RUMBLE
+        !function (r, u, m, b, l, e) { r._Rumble = b, r[b] || (r[b] = function () { (r[b]._ = r[b]._ || []).push(arguments); if (r[b]._.length == 1) { l = u.createElement(m), e = u.getElementsByTagName(m)[0], l.async = 1, l.src = "https://rumble.com/embedJS/urq2e0" + (arguments[1].video ? '.' + arguments[1].video : '') + "/?url=" + encodeURIComponent(location.href) + "&args=" + encodeURIComponent(JSON.stringify([].slice.apply(arguments))), e.parentNode.insertBefore(l, e) } }) }(window, document, "script", "Rumble");
+        Rumble("play", { "video": "v2nwlhq", "div": "rumble_v2nwlhq" });
+        const $divRumble = document.getElementById('rumble_v2nwlhq');
+        $divRumble.addEventListener('click', function (e) {
+            if (signupIsActive()) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+        }, true);
+        // END AUTO GENERATED SECTION
+        function attachVideoClickHandler() {
+            // When the rumble video element (from above) appears, attach a click handler
+            // to it. This should work with any rumble copy and paste.
+            let jobId = setInterval(() => {
+                let videos = document.getElementsByTagName('video');
+                if (videos.length < 1) {
+                    return
+                }
+                // Define the click handler
+                function handleBodyClick() {
+                    if (signupIsActive()) {
+                        return;
+                    }
+                    for (let i = 0; i < videos.length; i++) {
+                        let video = videos[i];
+                        let parentElement = video.parentElement;
+                        let found = false;
+                        while (parentElement != null) {
+                            if (parentElement.id === $divRumble.id) {
+                                video.play();
+                                found = true;
+                                break;
+                            }
+                            parentElement = parentElement.parentElement;
+                        }
+                        if (!found) {
+                            alert("Didn't find rumble_v2nwlhq as an ancestor")
+                        }
+                    }
+                    // Remove the click handler after one click
+                    document.body.removeEventListener('click', handleBodyClick);
+                }
+                // Add the click handler
+                document.body.addEventListener('click', handleBodyClick);
+                clearInterval(jobId);
+            }, 16);
+        }
+        attachVideoClickHandler();
+        initSignup(function () {
+            console.log('signup closed');
+        });
     </script>
-
 </body>
 
 </html>
