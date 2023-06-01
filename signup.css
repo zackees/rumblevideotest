@@ -21,7 +21,7 @@
     pointer-events: none;
     padding: 2em;
     filter: blur(5px);
-    transition: all 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
 
     /* shadow */
     box-shadow: 0 0 2px #00000080;
