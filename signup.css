@@ -24,7 +24,7 @@
     z-index: 4;
 }
 
-#signup p, input[type="email"], input[type="submit"] {
+#signup p, input {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -45,7 +45,7 @@
 }
 
 
-#signup input[type="email"] {
+#signup input[type="email"], input[type="name"] {
     padding: .7em 0em .7em .7em;
     border: 1px solid #999;
     border-radius: 2px;
