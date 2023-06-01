@@ -2,7 +2,7 @@
 let _signupCallbackDismissed = null
 let $signupCloseBtn = null
 let $signup = null
-let IS_TEST = true
+let IS_TEST = false
 
 function signupIsActive() {
     return $signup.classList.contains('active')
