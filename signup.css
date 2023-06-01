@@ -93,6 +93,7 @@ input[type="name"] {
     /* smaller size */
     font-size: smaller;
     margin-top: 10px;
+    background-color: #eee;
 }
 
 #btn-signup:active {
