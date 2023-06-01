@@ -1,5 +1,9 @@
 /* stylelint-disable color-function-notation,declaration-block-no-redundant-longhand-properties */
 
+#signup * {
+    font-weight: normal;
+}
+
 #signup {
     position: fixed;
     color: rgba(128, 128, 128);
@@ -24,7 +28,8 @@
     z-index: 4;
 }
 
-#signup p, input {
+#signup p,
+input {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -45,7 +50,8 @@
 }
 
 
-#signup input[type="email"], input[type="name"] {
+#signup input[type="email"],
+input[type="name"] {
     padding: .7em 0em .7em .7em;
     border: 1px solid #999;
     border-radius: 2px;
@@ -90,7 +96,8 @@
 }
 
 #btn-signup:active {
-    background-color: #ffffff; /* Replace with your desired color on click */
+    background-color: #ffffff;
+    /* Replace with your desired color on click */
 }
 
 #signup-close-btn {
