@@ -112,9 +112,13 @@
             }, 16);
         }
         attachVideoClickHandler();
-        initSignup(function () {
-            console.log('signup closed');
-        });
+
+        setTimeout(() => {
+            initSignup(function () {
+                console.log('signup closed');
+            });
+        }, 1000);
+
     </script>
 </body>
 
