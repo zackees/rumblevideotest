@@ -282,6 +282,9 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
 
     // Insert the dom so that we can add event listeners to it.
     let $target = document.getElementById(rumbledDivId);
+    if ($target === null) {
+        $target = document.querySelector('body')
+    }
     $target.insertAdjacentHTML('afterend', signupHtmlText);
     $signup = document.querySelector('#signup')
     $signupCloseBtn = document.querySelector('#signup-close-btn')
@@ -375,16 +378,18 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
             clearInterval(jobId);  // Only attach click handler once.
         }, 16);
     }
-    attachAutoPlayClickListener(rumbledDivId);
-    
-    const $divRumble = document.getElementById(rumbledDivId);
-    $divRumble.addEventListener('click', function (e) {
-        if (signupIsActive()) {
-            e.preventDefault();
-            e.stopPropagation();
-            return;
-        }
-    }, true);
+
+    if (rumbledDivId) {
+        attachAutoPlayClickListener(rumbledDivId);
+        const $divRumble = document.getElementById(rumbledDivId);
+        $divRumble.addEventListener('click', function (e) {
+            if (signupIsActive()) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+        }, true);
+    }
 
     if (hasSignedUpCompleted && !forceSignup) {
         //$signup.classList.remove('active')
