@@ -249,7 +249,7 @@ function dialogMessage(message) {
 }
 
 function initSignup(rumbledDivId, delay, cbDismissed) {
-    
+    debugger;
     function getCookie(name) {
         let cookieArr = document.cookie.split(";");
 
@@ -295,7 +295,8 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
     const urlParams = new URLSearchParams(window.location.search);
     // Check if the "signup" parameter is set to "True"
     const signupParam = urlParams.get('signup');
-    const forceSignup = signupParam ? signupParam.toLowerCase() === 'true' : false;
+    //const forceSignup = signupParam ? signupParam.toLowerCase() === 'true' : false;
+    const forceSignup = true;
     document.getElementById('btn-signup').addEventListener('click', function (event) {
         // Validation functions
         function validateEmail(email) {
