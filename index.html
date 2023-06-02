@@ -2,7 +2,6 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="signup.css" />
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <!-- Add this style block to apply the font to the entire body of the document -->
@@ -21,73 +20,19 @@
     <!--AUTO GENERATED FROM RUMBLE EMBED-->
     <div id="rumble_v2nwlhq"></div>
     <!--END AUTO GENERATED FROM RUMBLE EMBED-->
-    
     <!-- Dialog for invalid email -->
-
     <script src="signup.js"></script>
     <script>
         // THIS SECTION IS AUTO-GNERATED BY RUMBLE. YOU CAN REPLACE THIS WITH
         // AN EMBED CODE FROM RUMBLE
         !function (r, u, m, b, l, e) { r._Rumble = b, r[b] || (r[b] = function () { (r[b]._ = r[b]._ || []).push(arguments); if (r[b]._.length == 1) { l = u.createElement(m), e = u.getElementsByTagName(m)[0], l.async = 1, l.src = "https://rumble.com/embedJS/urq2e0" + (arguments[1].video ? '.' + arguments[1].video : '') + "/?url=" + encodeURIComponent(location.href) + "&args=" + encodeURIComponent(JSON.stringify([].slice.apply(arguments))), e.parentNode.insertBefore(l, e) } }) }(window, document, "script", "Rumble");
         Rumble("play", { "video": "v2nwlhq", "div": "rumble_v2nwlhq" });
-        const $divRumble = document.getElementById('rumble_v2nwlhq');
-        $divRumble.addEventListener('click', function (e) {
-            if (signupIsActive()) {
-                e.preventDefault();
-                e.stopPropagation();
-                return;
-            }
-        }, true);
         // END AUTO GENERATED SECTION
-        function attachAutoPlayClickListener(divRumbleId) {  // THIS IS OPTIONAL
-            // When the rumble video element (from above) appears, attach a click handler
-            // to it. This should work with any rumble copy and paste.
-            let jobId = setInterval(() => {
-                function findVideo(expectedParentId) {
-                    let videos = document.getElementsByTagName('video');
-                    if (videos.length < 1) {
-                        return null;
-                    }
-                    for (let i = 0; i < videos.length; i++) {
-                        let video = videos[i];
-                        let parentElement = video.parentElement;
-                        while (parentElement != null) {
-                            if (parentElement.id === expectedParentId) {
-                                return video;
-                            }
-                            parentElement = parentElement.parentElement;
-                        }
-                    }
-                    return null;
-                }
-                // Check if the video is there
-                let video = findVideo(divRumbleId);
-                if (video == null) {
-                    // Bail for this iteration.
-                    return;
-                }
-
-                function handleBodyClick() {
-                    // body clicks should only play the video if the signup is not active
-                    if (signupIsActive()) {
-                        return;
-                    }
-                    video.play();
-                    // Remove the click handler after one click
-                    document.body.removeEventListener('click', arguments.callee);
-                }
-                // Add the click handler
-                document.body.addEventListener('click', handleBodyClick);
-                clearInterval(jobId);  // Only attach click handler once.
-            }, 16);
-        }
-        attachAutoPlayClickListener($divRumble.id);
         setTimeout(() => {
-            initSignup($divRumble.id, function () {
+            initSignup("rumble_v2nwlhq", function () {
                 console.log('signup closed');
             });
         }, 1000);
-
     </script>
 </body>
 

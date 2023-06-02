@@ -5,6 +5,134 @@ let $signup = null
 let IS_TEST = false
 
 let signupHtmlText = `
+
+<style>
+
+#signup * {
+    font-weight: normal;
+}
+
+#signup {
+    position: fixed;
+    color: rgba(128, 128, 128);
+
+    /* Center the element */
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    max-width: 90vw;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 97%);
+    border-radius: 2px;
+    border: 1px solid rgba(128, 128, 128, 20%);
+    opacity: 0;
+    pointer-events: none;
+    padding: 2em;
+    filter: blur(5px);
+    transition: opacity 0.25s ease-in-out;
+
+    /* shadow */
+    box-shadow: 0 0 2px #00000080;
+    z-index: 4;
+}
+
+#signup p,
+input {
+    font-family: 'Poppins', sans-serif;
+}
+
+#signup h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+#signup.active {
+    opacity: 1;
+    pointer-events: all;
+    filter: blur(0);
+    transition: all 0.5s ease-in-out;
+}
+
+
+#signup input {
+    font-size: 1em;
+}
+
+
+#signup input[type="email"],
+input[type="name"] {
+    padding: .7em 0em .7em .7em;
+    border: 1px solid #999;
+    border-radius: 2px;
+    font-size: 1em;
+    width: 100%;
+}
+
+#signup input[type="email"] {
+    margin-top: 10px;
+}
+
+#signup input[type="submit"] {
+    padding: .7em 1em .7em 1em;
+    border: 1px solid rgb(119, 119, 119);
+    border-radius: 2px;
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: .10em;
+    font-weight: 500;
+    color: #777;
+    box-shadow: inset 0 0 0 2px #eaeaea;
+
+}
+
+#signup>h2 {
+    text-transform: uppercase;
+    color: rgb(119, 119, 119);
+    letter-spacing: .10em;
+}
+
+#signup-privacy-statement {
+    font-size: x-small;
+    color: #999;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#btn-signup {
+    /* smaller size */
+    font-size: smaller;
+    margin-top: 10px;
+    background-color: #eee;
+}
+
+#btn-signup:active {
+    background-color: #ffffff;
+    /* Replace with your desired color on click */
+}
+
+#signup-close-btn {
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #999;
+    top: -0.5em;
+    left: -0.5em;
+    cursor: pointer;
+
+    /* use fa fa-times as the icon */
+    font-family: FontAwesome;
+    /* stylelint-disable-line */
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 1.5em;
+    color: #999;
+    margin: 0;
+    padding: 0;
+}
+
+</style>
+
 <section id="signup">
 <div id="signup-close-btn" class="close-btn" style="display: none;">
     <i class="fa fa-times"></i>
@@ -129,9 +257,6 @@ function initSignup(rumbledDivId, cbDismissed) {
     // Check if the "signup" parameter is set to "True"
     const signupParam = urlParams.get('signup');
     const forceSignup = signupParam ? signupParam.toLowerCase() === 'true' : false;
-
-
-
     document.getElementById('btn-signup').addEventListener('click', function (event) {
         // Validation functions
         function validateEmail(email) {
@@ -174,7 +299,59 @@ function initSignup(rumbledDivId, cbDismissed) {
         let dialog = document.getElementById('dialogBox');
         dialog.close();
     });
+
+    function attachAutoPlayClickListener(divRumbleId) {  // THIS IS OPTIONAL
+        // When the rumble video element (from above) appears, attach a click handler
+        // to it. This should work with any rumble copy and paste.
+        let jobId = setInterval(() => {
+            function findVideo(expectedParentId) {
+                let videos = document.getElementsByTagName('video');
+                if (videos.length < 1) {
+                    return null;
+                }
+                for (let i = 0; i < videos.length; i++) {
+                    let video = videos[i];
+                    let parentElement = video.parentElement;
+                    while (parentElement != null) {
+                        if (parentElement.id === expectedParentId) {
+                            return video;
+                        }
+                        parentElement = parentElement.parentElement;
+                    }
+                }
+                return null;
+            }
+            // Check if the video is there
+            let video = findVideo(divRumbleId);
+            if (video == null) {
+                // Bail for this iteration.
+                return;
+            }
+
+            function handleBodyClick() {
+                // body clicks should only play the video if the signup is not active
+                if (signupIsActive()) {
+                    return;
+                }
+                video.play();
+                // Remove the click handler after one click
+                document.body.removeEventListener('click', arguments.callee);
+            }
+            // Add the click handler
+            document.body.addEventListener('click', handleBodyClick);
+            clearInterval(jobId);  // Only attach click handler once.
+        }, 16);
+    }
+    attachAutoPlayClickListener(rumbledDivId);
     
+    const $divRumble = document.getElementById(rumbledDivId);
+    $divRumble.addEventListener('click', function (e) {
+        if (signupIsActive()) {
+            e.preventDefault();
+            e.stopPropagation();
+            return;
+        }
+    }, true);
 
     if (hasSignedUpCompleted && !forceSignup) {
         //$signup.classList.remove('active')
