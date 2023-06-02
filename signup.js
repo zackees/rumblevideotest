@@ -145,8 +145,8 @@ input[type="name"] {
 <div id="signup-close-btn" class="close-btn" style="display: none;">
     <i class="fa fa-times"></i>
 </div>
-<h2>Watch Plandemic 3: The Great Awakening</h2>
-<p>Enter your email to view the film.</p>
+<h2>Plandemic 3: The Great Awakening?</h2>
+<p>To unlock the full documentary and begin watching, please enter your email below. Your exclusive access to Plandemic 3 starts here!</p>
 <!-- Input form for first name and email -->
 <form method="get" accept-charset="UTF-8" style="margin-bottom: 0px;">
     <div>
@@ -173,7 +173,7 @@ input[type="name"] {
         <p style="font-size:10px;">If you have questions about this Privacy Policy, please contact us.</p>
     </div>
     <p style="font-size:10px;">
-        Support us with a generous <a href="https://plandemicseries.com/donate" target="_blank">donation</a>
+        Support us with a tax deductable <a href="https://plandemicseries.com/donate" target="_blank">donation</a>
     </p>
 </form>
 <dialog id="dialogBox">
@@ -187,6 +187,12 @@ input[type="name"] {
 
 function signupIsActive() {
     return $signup.classList.contains('active')
+}
+
+function signupDialogDonate(event) {
+    dialogMessage("<iframe src=\"https://plandemicseries.com/donate/\" style=\"width: 30vw;height: 80vh\"></iframe>")
+    event.stopPropagation()
+    event.stopDefault()
 }
 
 function signupAddContact(name, email) {
@@ -239,6 +245,7 @@ function dialogMessage(message) {
 }
 
 function initSignup(rumbledDivId, delay, cbDismissed) {
+    
     function getCookie(name) {
         let cookieArr = document.cookie.split(";");
 
@@ -397,5 +404,7 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
         let $text = document.querySelector('#text-privacy-policy')
         dialogMessage($text.innerHTML)
     })
+
+    
 }
 
