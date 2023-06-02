@@ -417,21 +417,3 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
     })
 }
 
-
-// Hack to set the button action.
-(function() {
-    // find an <a href> that points to #demo
-    console.log("Attaching button")
-    document.querySelectorAll('a[href="#demo"]').forEach(function (a) {
-        console.log("Found button")
-        // add a click event listener
-        a.addEventListener('click', function (e) {
-            // prevent the default action
-            e.preventDefault();
-            e.stopPropagation();
-            console.log("Clicked button");
-            // open the dialog
-            initSignup();
-        });
-    });
-})();
