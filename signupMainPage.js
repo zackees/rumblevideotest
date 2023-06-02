@@ -249,7 +249,6 @@ function dialogMessage(message) {
 }
 
 function initSignup(rumbledDivId, delay, cbDismissed) {
-    debugger;
     function getCookie(name) {
         let cookieArr = document.cookie.split(";");
 
