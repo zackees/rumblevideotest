@@ -4,6 +4,14 @@ let $signupCloseBtn = null
 let $signup = null
 let IS_TEST = false
 
+let cssLinks = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css",
+    "https://fonts.googleapis.com/css?family=Roboto:wght@300,500|Oswald:400",
+    "https://fonts.googleapis.com/css?family=Open+Sans:300,300i,700,700i",
+    "https://fonts.googleapis.com/css2?family=Poppins&display=swap",
+    "https://fonts.googleapis.com/css2?family=B612+Mono&display=swap",
+]
+
 let signupHtmlText = `
 
 <style>
@@ -227,7 +235,7 @@ function dialogMessage(message) {
     dialog.showModal();
 }
 
-function initSignup(rumbledDivId, cbDismissed) {
+function initSignup(rumbledDivId, delay, cbDismissed) {
     function getCookie(name) {
         let cookieArr = document.cookie.split(";");
 
@@ -247,6 +255,18 @@ function initSignup(rumbledDivId, cbDismissed) {
         return null;
     }
     _signupCallbackDismissed = cbDismissed
+    // attach css links to head
+    let head = document.getElementsByTagName('head')[0];
+    let link = document.createElement('link');
+    for (let i = 0; i < cssLinks.length; i++) {
+        link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = cssLinks[i];
+        link.media = 'all';
+        head.appendChild(link);
+    }
+
     // Insert the dom so that we can add event listeners to it.
     let $target = document.getElementById(rumbledDivId);
     $target.insertAdjacentHTML('afterend', signupHtmlText);
@@ -359,7 +379,9 @@ function initSignup(rumbledDivId, cbDismissed) {
     }
     //assert($signupCloseBtn, 'signupCloseBtn not found')
     //assert($signup, 'signup not found')
-    $signup.classList.add('active')
+    setTimeout(() => {
+        $signup.classList.add('active')
+    }, delay)
     $signupCloseBtn.addEventListener('click', (e) => {
         e.preventDefault()
         e.stopPropagation()
