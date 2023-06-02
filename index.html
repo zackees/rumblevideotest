@@ -53,12 +53,13 @@
                 <p style="font-size:10px;">If you have questions about this Privacy Policy, please contact us.</p>
             </div>
         </form>
+        <dialog id="dialogBox">
+            <p id="dialogBoxmMessage">Invalid email, please try again.</p>
+            <button id="closeBtn">Close</button>
+        </dialog>
     </section>
     <!-- Dialog for invalid email -->
-    <dialog id="dialogBox">
-        <p id="dialogBoxmMessage">Invalid email, please try again.</p>
-        <button id="closeBtn">Close</button>
-    </dialog>
+
     <script src="signup.js"></script>
     <script>
         // THIS SECTION IS AUTO-GNERATED BY RUMBLE. YOU CAN REPLACE THIS WITH
@@ -74,7 +75,7 @@
             }
         }, true);
         // END AUTO GENERATED SECTION
-        function attachVideoClickHandler() {  // THIS IS OPTIONAL
+        function attachAutoPlayClickListener(divRumbleId) {  // THIS IS OPTIONAL
             // When the rumble video element (from above) appears, attach a click handler
             // to it. This should work with any rumble copy and paste.
             let jobId = setInterval(() => {
@@ -96,7 +97,7 @@
                     return null;
                 }
                 // Check if the video is there
-                let video = findVideo($divRumble.id);
+                let video = findVideo(divRumbleId);
                 if (video == null) {
                     // Bail for this iteration.
                     return;
@@ -116,7 +117,7 @@
                 clearInterval(jobId);  // Only attach click handler once.
             }, 16);
         }
-        attachVideoClickHandler();
+        attachAutoPlayClickListener($divRumble.id);
 
         setTimeout(() => {
             initSignup(function () {
