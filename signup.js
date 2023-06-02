@@ -172,6 +172,9 @@ input[type="name"] {
             email for film updates, but we won't share it with anyone. You can unsubscribe at any time.</p>
         <p style="font-size:10px;">If you have questions about this Privacy Policy, please contact us.</p>
     </div>
+    <p style="font-size:10px;">
+        Support us with a generous <a href="https://plandemicseries.com/donate">donation</a>
+    </p>
 </form>
 <dialog id="dialogBox">
     <p id="dialogBoxmMessage">Invalid email, please try again.</p>
