@@ -173,7 +173,7 @@ input[type="name"] {
         <p style="font-size:10px;">If you have questions about this Privacy Policy, please contact us.</p>
     </div>
     <p style="font-size:10px;">
-        Support us with a generous <a href="https://plandemicseries.com/donate">donation</a>
+        Support us with a generous <a href="https://plandemicseries.com/donate" target="_blank">donation</a>
     </p>
 </form>
 <dialog id="dialogBox">
