@@ -4,6 +4,8 @@ let $signupCloseBtn = null
 let $signup = null
 let IS_TEST = false
 
+// TODO: Redirect to: https://plandemicseries.com/watchparty/
+
 function signupIsActive() {
     return $signup.classList.contains('active')
 }
@@ -15,8 +17,8 @@ function signupAddContact(name, email) {
     }
     const url = "https://cakemail-addcontact.onrender.com/add_user_contact" + args
     const data = {
-        "name": "Zach Vorhies",
-        "email": "z@zackees.com"
+        "name": name,
+        "email": email
     };
     fetch(url, {  // specify your URL here
         method: 'POST',    // or 'GET', depends on your requirements
