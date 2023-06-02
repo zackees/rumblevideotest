@@ -183,6 +183,7 @@ input[type="name"] {
 </section>
 `
 
+
 // TODO: Redirect to: https://plandemicseries.com/watchparty/
 
 function signupIsActive() {
@@ -268,7 +269,8 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
         return null;
     }
     delay = delay || 500
-    _signupCallbackDismissed = cbDismissed || function () { }
+    _signupCallbackDismissed = cbDismissed || function () {}
+
     // attach css links to head
     let head = document.getElementsByTagName('head')[0];
     let link = document.createElement('link');
@@ -415,3 +417,21 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
     })
 }
 
+
+// Hack to set the button action.
+(function() {
+    // find an <a href> that points to #demo
+    console.log("Attaching button")
+    document.querySelectorAll('a[href="#demo"]').forEach(function (a) {
+        console.log("Found button")
+        // add a click event listener
+        a.addEventListener('click', function (e) {
+            // prevent the default action
+            e.preventDefault();
+            e.stopPropagation();
+            console.log("Clicked button");
+            // open the dialog
+            initSignup();
+        });
+    });
+})();
