@@ -235,6 +235,9 @@ function signupDismissed() {
         $signup.style.display = 'none'
     }, 1000)
     _signupCallbackDismissed()
+    const url = "https://plandemicseries.com/watchparty/"
+    // open website in new tab
+    window.open(url, '_blank').focus();
 }
 
 function dialogMessage(message) {
