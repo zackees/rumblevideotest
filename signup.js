@@ -267,7 +267,8 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
         // Return null if not found
         return null;
     }
-    _signupCallbackDismissed = cbDismissed
+    delay = delay || 500
+    _signupCallbackDismissed = cbDismissed || function () { }
     // attach css links to head
     let head = document.getElementsByTagName('head')[0];
     let link = document.createElement('link');
