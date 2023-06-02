@@ -145,7 +145,7 @@ input[type="name"] {
 <div id="signup-close-btn" class="close-btn" style="display: none;">
     <i class="fa fa-times"></i>
 </div>
-<h2>Plandemic 3: The Great Awakening?</h2>
+<h2>Plandemic 3: The Great Awakening</h2>
 <p>To unlock the full documentary and begin watching, please enter your email below. Your exclusive access to Plandemic 3 starts here!</p>
 <!-- Input form for first name and email -->
 <form method="get" accept-charset="UTF-8" style="margin-bottom: 0px;">
@@ -412,7 +412,5 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
         let $text = document.querySelector('#text-privacy-policy')
         dialogMessage($text.innerHTML)
     })
-
-    
 }
 
