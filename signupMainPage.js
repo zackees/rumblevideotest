@@ -44,6 +44,23 @@ let signupHtmlText = `
     z-index: 4;
 }
 
+#dialogBox {
+    border-radius: 2px; 
+    background-color: rgba(250, 250, 250, 97%);   
+}
+
+#dialogBox * {
+    font-weight: normal;
+    color: rgba(128, 128, 128);
+    font-family: 'Poppins', sans-serif;
+
+}
+
+#dialogBox button {
+    border-radius: 2px;
+    border: 1px solid rgba(128, 128, 128, 80%);
+}
+
 #signup p,
 input {
     font-family: 'Poppins', sans-serif;
