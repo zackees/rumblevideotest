@@ -250,8 +250,6 @@ function dialogMessage(message) {
 let gSignupInitialized = false
 
 function initSignup(rumbledDivId, delay, cbDismissed) {
-    console.log("initSignup")
-    debugger
     if (!gSignupInitialized) {
         gSignupInitialized = true
         function getCookie(name) {
