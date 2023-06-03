@@ -102,6 +102,7 @@ input {
 
 #signup input[type="email"],
 input[type="name"] {
+    box-sizing: border-box; /* This line is added */
     padding: .7em 0em .7em .7em;
     border: 1px solid #999;
     border-radius: 2px;
@@ -124,6 +125,7 @@ input[type="name"] {
     background-color: #1e929f; /* Background color is the specified green */
 
     transition: background-color 0.5s, color 0.5s, border-color 0.5s; /* Added transition for border color */
+    width: 100%;
 }
 
 #signup input[type="submit"]:hover {
