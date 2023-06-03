@@ -57,12 +57,7 @@ let signupHtmlText = `
 }
 
 #dialogBox button {
-    border-radius: 2px;
-    border: 1px solid rgba(128, 128, 128, 80%);
-}
-
-#dialogBox button {
-    border-radius: 2px;
+    border-radius: 1px;
     border: 1px solid rgba(128, 128, 128, 80%);
     background-color: rgba(250, 250, 250, 97%);
 }
