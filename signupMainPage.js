@@ -126,6 +126,7 @@ input[type="name"] {
 
     transition: background-color 0.5s, color 0.5s, border-color 0.5s; /* Added transition for border color */
     width: 100%;
+    margin-bottom: .5em;
 }
 
 #signup input[type="submit"]:hover {
