@@ -233,7 +233,6 @@ function signupDismissed(nextUrl) {
     // Remove element from dom after a timeout.
     setTimeout(() => {
         let $signup = document.querySelector('#signup')
-        $signup.style.display = 'none'
     }, 1000)
     _signupCallbackDismissed()
     if (nextUrl) {
