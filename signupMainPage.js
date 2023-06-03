@@ -85,7 +85,7 @@ input {
 
 
 #signup input {
-    font-size: 1em;
+    font-size: 18pt;
 }
 
 
@@ -94,7 +94,6 @@ input[type="name"] {
     padding: .7em 0em .7em .7em;
     border: 1px solid #999;
     border-radius: 2px;
-    font-size: 1em;
     width: 100%;
 }
 
@@ -106,11 +105,11 @@ input[type="name"] {
     padding: .7em 1em .7em 1em;
     border: 1px solid rgb(119, 119, 119);
     border-radius: 2px;
-    font-size: .8em;
+    font-size: 1.2em;
     text-transform: uppercase;
     letter-spacing: .10em;
     font-weight: 500;
-    color: #777;
+    color: #1e929f;
     box-shadow: inset 0 0 0 2px #eaeaea;
 
 }
