@@ -118,7 +118,7 @@ input[type="name"] {
     border-radius: 2px;
     font-size: 1.2em;
     text-transform: uppercase;
-    letter-spacing: .10em;
+    /* letter-spacing: .10em; */
     font-weight: 500;
     color: #FFFFFF; /* Text color is now white */
     background-color: #1e929f; /* Background color is the specified green */
