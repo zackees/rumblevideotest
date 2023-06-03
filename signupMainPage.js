@@ -397,11 +397,7 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
             }, true);
         }
 
-        $signupCloseBtn.addEventListener('click', (e) => {
-            e.preventDefault()
-            e.stopPropagation()
-            signupDismissed()
-        })
+
         let $btnPrivacyPolicy = document.querySelector('#signup-privacy-statement')
         $btnPrivacyPolicy.addEventListener('click', (e) => {
             e.preventDefault()
@@ -409,7 +405,22 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
             let $text = document.querySelector('#text-privacy-policy')
             dialogMessage($text.innerHTML)
         })
+
+        document.addEventListener('click', function(e) {
+            if (signupIsActive() && !e.target.closest('#signup')) {
+                e.preventDefault()
+                e.stopPropagation()
+                signupDismissed();
+            }
+        }, true);
     }
+
+    // Needs to be re-added because it's removed during dismissal.
+    $signupCloseBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        signupDismissed()
+    })
 
     //assert($signupCloseBtn, 'signupCloseBtn not found')
     //assert($signup, 'signup not found')
