@@ -64,7 +64,6 @@ let signupHtmlText = `
 
 #signup {
     width: min(80vw, 600px);
-    height: min(60vh, 400px);
 }
 
 #signup p,
@@ -202,13 +201,13 @@ input[type="name"] {
         View our
         <a href="#">Privacy Policy.</a>
     </p>
-    <div id="text-privacy-policy" style="display: none" ;>
+    <div id="text-privacy-policy" style="display: none;">
         <p style="font-size:10px;"><b>Privacy Policy</b></p>
         <p style="font-size:10px;">We respect your privacy and are committed to protecting it. We collect your
             email for film updates, but we won't share it with anyone. You can unsubscribe at any time.</p>
         <p style="font-size:10px;">If you have questions about this Privacy Policy, please contact us.</p>
     </div>
-    <p style="font-size:10px;">
+    <p style="font-size:16px;margin-top:1em;margin-bottom:0;">
         Support us with a tax deductable <a href="https://plandemicseries.com/donate" target="_blank">donation</a>
     </p>
 </form>
