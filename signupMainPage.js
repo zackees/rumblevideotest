@@ -85,7 +85,7 @@ input {
 
 
 #signup input {
-    font-size: 18pt;
+    font-size: 16pt;
 }
 
 
