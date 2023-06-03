@@ -201,7 +201,7 @@ input[type="name"] {
 </form>
 <dialog id="dialogBox">
     <p id="dialogBoxmMessage">Invalid email, please try again.</p>
-    <button id="closeBtn">Close</button>
+    <button id="closeBtn" style="background-color:rgba(255, 255, 255, .97);">Close</button>
 </dialog>
 </section>
 `
