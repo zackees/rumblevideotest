@@ -129,7 +129,7 @@ input[type="name"] {
     cursor: pointer;
 
     /* use fa fa-times as the icon */
-    font-family: FontAwesome;
+    font-family: FontAwesome !important;
     /* stylelint-disable-line */
     font-size: 1.5em;
     text-align: center;
@@ -143,7 +143,7 @@ input[type="name"] {
 
 <section id="signup">
 <div id="signup-close-btn" class="close-btn">
-    <i class="fa fa-times"></i>
+    <div style="font-family: monospace;">x</div>
 </div>
 <h2>Plandemic 3: The Great Awakening</h2>
 <p>To unlock the full documentary and begin watching, please enter your email below. Your exclusive access to Plandemic 3 starts here!</p>
