@@ -291,7 +291,7 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
             // Return null if not found
             return null;
         }
-        delay = delay || 500
+        delay = delay || 0
         _signupCallbackDismissed = cbDismissed || function () {}
         signupLoadCssResources()
 
