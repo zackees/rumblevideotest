@@ -65,7 +65,7 @@ let signupHtmlText = `
 #signup p,
 input {
     font-family: 'Poppins', sans-serif;
-    font-size: 18pt;
+    font-size: 16pt;
     color: #666666;
 
 }
