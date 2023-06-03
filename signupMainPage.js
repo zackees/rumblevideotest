@@ -137,7 +137,6 @@ input[type="name"] {
 
 #signup>h2 {
     text-transform: uppercase;
-    color: rgb(119, 119, 119);
     /* letter-spacing: .10em; */
 }
 
