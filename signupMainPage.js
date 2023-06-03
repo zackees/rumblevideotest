@@ -69,6 +69,8 @@ input {
 
 #signup h2 {
     font-family: 'Bebas Neue', sans-serif;
+    font-size: 40pt;
+    color: black;
 }
 
 #signup.active {
