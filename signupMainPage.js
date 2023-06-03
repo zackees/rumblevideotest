@@ -199,7 +199,7 @@ input[type="name"] {
     <p id="signup-privacy-statement">
         By signing up, you agree to receive occasional emails from us and may choose to unsubscribe at anytime.
         View our
-        <a href="#">Privacy Policy.</a>
+        <a id="signup-privacy-statement-link" href="#">Privacy Policy.</a>
     </p>
     <div id="text-privacy-policy" style="display: none;">
         <p style="font-size:10px;"><b>Privacy Policy</b></p>
@@ -445,7 +445,7 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
         }
 
 
-        let $btnPrivacyPolicy = document.querySelector('#signup-privacy-statement')
+        let $btnPrivacyPolicy = document.querySelector('#signup-privacy-statement-link')
         $btnPrivacyPolicy.addEventListener('click', (e) => {
             e.preventDefault()
             e.stopPropagation()
