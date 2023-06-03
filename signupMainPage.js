@@ -183,6 +183,27 @@ input[type="name"] {
 </section>
 `
 
+function signupLoadCssResources() {
+    // attach css links to head
+    if (signupLoadCssResources.loaded) {
+        return
+    }
+    signupLoadCssResources.loaded = true
+    let head = document.getElementsByTagName('head')[0];
+    let link = document.createElement('link');
+    for (let i = 0; i < cssLinks.length; i++) {
+        link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = cssLinks[i];
+        link.media = 'all';
+        head.appendChild(link);
+    }
+}
+
+(function() {
+    signupLoadCssResources()
+})();
 
 // TODO: Redirect to: https://plandemicseries.com/watchparty/
 
@@ -271,19 +292,10 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
             return null;
         }
         delay = delay || 500
-        _signupCallbackDismissed = cbDismissed || function () { }
+        _signupCallbackDismissed = cbDismissed || function () {}
+        signupLoadCssResources()
 
-        // attach css links to head
-        let head = document.getElementsByTagName('head')[0];
-        let link = document.createElement('link');
-        for (let i = 0; i < cssLinks.length; i++) {
-            link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = cssLinks[i];
-            link.media = 'all';
-            head.appendChild(link);
-        }
+
 
         // Insert the dom so that we can add event listeners to it.
         let $target = document.getElementById(rumbledDivId);
