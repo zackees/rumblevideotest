@@ -227,7 +227,7 @@ function signupAddContact(name, email) {
 }
 
 
-function signupDismissed() {
+function signupDismissed(nextUrl) {
     $signup.classList.remove('active')
     $signupCloseBtn.removeEventListener('click', arguments.callee)
     // Remove element from dom after a timeout.
@@ -236,9 +236,9 @@ function signupDismissed() {
         $signup.style.display = 'none'
     }, 1000)
     _signupCallbackDismissed()
-    const url = "https://plandemicseries.com/watch-the-great-awakening-movie/"
-    // open website in new tab
-    window.open(url, '_blank').focus();
+    if (nextUrl) {
+        window.open(nextUrl, '_blank').focus();
+    }
 }
 
 function dialogMessage(message) {
@@ -331,7 +331,7 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
         signupAddContact($firstName.value, $email.value);
         event.preventDefault();
         event.stopPropagation();
-        signupDismissed()
+        signupDismissed("https://plandemicseries.com/watch-the-great-awakening-movie/")
     });
 
     document.getElementById('closeBtn').addEventListener('click', function (event) {
