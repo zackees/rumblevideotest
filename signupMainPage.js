@@ -248,167 +248,174 @@ function dialogMessage(message) {
     dialog.showModal();
 }
 
+let gSignupInitialized = false
+
 function initSignup(rumbledDivId, delay, cbDismissed) {
-    function getCookie(name) {
-        let cookieArr = document.cookie.split(";");
+    if (!gSignupInitialized) {
+        gSignupInitialized = true
+        function getCookie(name) {
+            let cookieArr = document.cookie.split(";");
 
-        // Loop through the array elements
-        for (let i = 0; i < cookieArr.length; i++) {
-            let cookiePair = cookieArr[i].split("=");
+            // Loop through the array elements
+            for (let i = 0; i < cookieArr.length; i++) {
+                let cookiePair = cookieArr[i].split("=");
 
-            /* Removing whitespace at the beginning of the cookie `name`
-            and compare it with the given string */
-            if (name == cookiePair[0].trim()) {
-                // Decode the cookie value and return
-                return decodeURIComponent(cookiePair[1]);
+                /* Removing whitespace at the beginning of the cookie `name`
+                and compare it with the given string */
+                if (name == cookiePair[0].trim()) {
+                    // Decode the cookie value and return
+                    return decodeURIComponent(cookiePair[1]);
+                }
             }
+
+            // Return null if not found
+            return null;
+        }
+        delay = delay || 500
+        _signupCallbackDismissed = cbDismissed || function () { }
+
+        // attach css links to head
+        let head = document.getElementsByTagName('head')[0];
+        let link = document.createElement('link');
+        for (let i = 0; i < cssLinks.length; i++) {
+            link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = cssLinks[i];
+            link.media = 'all';
+            head.appendChild(link);
         }
 
-        // Return null if not found
-        return null;
-    }
-    delay = delay || 500
-    _signupCallbackDismissed = cbDismissed || function () {}
-
-    // attach css links to head
-    let head = document.getElementsByTagName('head')[0];
-    let link = document.createElement('link');
-    for (let i = 0; i < cssLinks.length; i++) {
-        link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = cssLinks[i];
-        link.media = 'all';
-        head.appendChild(link);
-    }
-
-    // Insert the dom so that we can add event listeners to it.
-    let $target = document.getElementById(rumbledDivId);
-    if ($target === null) {
-        $target = document.querySelector('body')
-    }
-    $target.insertAdjacentHTML('afterend', signupHtmlText);
-    $signup = document.querySelector('#signup')
-    $signupCloseBtn = document.querySelector('#signup-close-btn')
-    let hasSignedUpCompleted = getCookie("hasSignedUpCompleted")
-    const urlParams = new URLSearchParams(window.location.search);
-    // Check if the "signup" parameter is set to "True"
-    const signupParam = urlParams.get('signup');
-    //const forceSignup = signupParam ? signupParam.toLowerCase() === 'true' : false;
-    const forceSignup = true;
-    document.getElementById('btn-signup').addEventListener('click', function (event) {
-        // Validation functions
-        function validateEmail(email) {
-            const regex = '[^\\.\\s@:](?:[^\\s@:]*[^\\s@:\\.])?@[^\\.\\s@]+(?:\\.[^\\.\\s@]+)*';
-            function emailRegex({ exact } = {}) {
-                return exact ? new RegExp(`^${regex}$`) : new RegExp(regex, 'g');
+        // Insert the dom so that we can add event listeners to it.
+        let $target = document.getElementById(rumbledDivId);
+        if ($target === null) {
+            $target = document.querySelector('body')
+        }
+        $target.insertAdjacentHTML('afterend', signupHtmlText);
+        $signup = document.querySelector('#signup')
+        $signupCloseBtn = document.querySelector('#signup-close-btn')
+        let hasSignedUpCompleted = getCookie("hasSignedUpCompleted")
+        const urlParams = new URLSearchParams(window.location.search);
+        // Check if the "signup" parameter is set to "True"
+        const signupParam = urlParams.get('signup');
+        //const forceSignup = signupParam ? signupParam.toLowerCase() === 'true' : false;
+        const forceSignup = true;
+        document.getElementById('btn-signup').addEventListener('click', function (event) {
+            // Validation functions
+            function validateEmail(email) {
+                const regex = '[^\\.\\s@:](?:[^\\s@:]*[^\\s@:\\.])?@[^\\.\\s@]+(?:\\.[^\\.\\s@]+)*';
+                function emailRegex({ exact } = {}) {
+                    return exact ? new RegExp(`^${regex}$`) : new RegExp(regex, 'g');
+                }
+                const isEmail = emailRegex({ exact: true }).test(email);
+                return isEmail;
             }
-            const isEmail = emailRegex({ exact: true }).test(email);
-            return isEmail;
-        }
-        function validateName(name) {
-            let re = /^[a-zA-Z\s]+$/;
-            return re.test(name);
-        }
-        // Dom elements
-        const $firstName = document.getElementById('singup_first_name');
-        const $email = document.getElementById('signup_email');
-        let emailInput = document.getElementById('signup_email').value;
-        let nameInput = document.getElementById('singup_first_name').value;
-    
-        if (!validateName(nameInput)) {
-            dialogMessage("Invalid name, please try again.")
+            function validateName(name) {
+                let re = /^[a-zA-Z\s]+$/;
+                return re.test(name);
+            }
+            // Dom elements
+            const $firstName = document.getElementById('singup_first_name');
+            const $email = document.getElementById('signup_email');
+            let emailInput = document.getElementById('signup_email').value;
+            let nameInput = document.getElementById('singup_first_name').value;
+
+            if (!validateName(nameInput)) {
+                dialogMessage("Invalid name, please try again.")
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+            if (!validateEmail(emailInput)) {
+                dialogMessage("Invalid email, please try again.")
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+            signupAddContact($firstName.value, $email.value);
             event.preventDefault();
             event.stopPropagation();
-            return false;
-        }
-        if (!validateEmail(emailInput)) {
-            dialogMessage("Invalid email, please try again.")
-            event.preventDefault();
-            event.stopPropagation();
-            return false;
-        }
-        signupAddContact($firstName.value, $email.value);
-        event.preventDefault();
-        event.stopPropagation();
-        signupDismissed("https://plandemicseries.com/watch-the-great-awakening-movie/")
-    });
+            signupDismissed("https://plandemicseries.com/watch-the-great-awakening-movie/")
+        });
 
-    document.getElementById('closeBtn').addEventListener('click', function (event) {
-        let dialog = document.getElementById('dialogBox');
-        dialog.close();
-    });
+        document.getElementById('closeBtn').addEventListener('click', function (event) {
+            let dialog = document.getElementById('dialogBox');
+            dialog.close();
+        });
 
-    function attachAutoPlayClickListener(divRumbleId) {  // THIS IS OPTIONAL
-        // When the rumble video element (from above) appears, attach a click handler
-        // to it. This should work with any rumble copy and paste.
-        let jobId = setInterval(() => {
-            function findVideo(expectedParentId) {
-                let videos = document.getElementsByTagName('video');
-                if (videos.length < 1) {
+        function attachAutoPlayClickListener(divRumbleId) {  // THIS IS OPTIONAL
+            // When the rumble video element (from above) appears, attach a click handler
+            // to it. This should work with any rumble copy and paste.
+            let jobId = setInterval(() => {
+                function findVideo(expectedParentId) {
+                    let videos = document.getElementsByTagName('video');
+                    if (videos.length < 1) {
+                        return null;
+                    }
+                    for (let i = 0; i < videos.length; i++) {
+                        let video = videos[i];
+                        let parentElement = video.parentElement;
+                        while (parentElement != null) {
+                            if (parentElement.id === expectedParentId) {
+                                return video;
+                            }
+                            parentElement = parentElement.parentElement;
+                        }
+                    }
                     return null;
                 }
-                for (let i = 0; i < videos.length; i++) {
-                    let video = videos[i];
-                    let parentElement = video.parentElement;
-                    while (parentElement != null) {
-                        if (parentElement.id === expectedParentId) {
-                            return video;
-                        }
-                        parentElement = parentElement.parentElement;
-                    }
-                }
-                return null;
-            }
-            // Check if the video is there
-            let video = findVideo(divRumbleId);
-            if (video == null) {
-                // Bail for this iteration.
-                return;
-            }
-
-            function handleBodyClick() {
-                // body clicks should only play the video if the signup is not active
-                if (signupIsActive()) {
+                // Check if the video is there
+                let video = findVideo(divRumbleId);
+                if (video == null) {
+                    // Bail for this iteration.
                     return;
                 }
-                video.play();
-                // Remove the click handler after one click
-                document.body.removeEventListener('click', arguments.callee);
-            }
-            // Add the click handler
-            document.body.addEventListener('click', handleBodyClick);
-            clearInterval(jobId);  // Only attach click handler once.
-        }, 16);
+
+                function handleBodyClick() {
+                    // body clicks should only play the video if the signup is not active
+                    if (signupIsActive()) {
+                        return;
+                    }
+                    video.play();
+                    // Remove the click handler after one click
+                    document.body.removeEventListener('click', arguments.callee);
+                }
+                // Add the click handler
+                document.body.addEventListener('click', handleBodyClick);
+                clearInterval(jobId);  // Only attach click handler once.
+            }, 16);
+        }
+
+        if (rumbledDivId) {
+            attachAutoPlayClickListener(rumbledDivId);
+            const $divRumble = document.getElementById(rumbledDivId);
+            $divRumble.addEventListener('click', function (e) {
+                if (signupIsActive()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return;
+                }
+            }, true);
+        }
+
+        $signupCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            signupDismissed()
+        })
+        let $btnPrivacyPolicy = document.querySelector('#signup-privacy-statement')
+        $btnPrivacyPolicy.addEventListener('click', (e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            let $text = document.querySelector('#text-privacy-policy')
+            dialogMessage($text.innerHTML)
+        })
     }
 
-    if (rumbledDivId) {
-        attachAutoPlayClickListener(rumbledDivId);
-        const $divRumble = document.getElementById(rumbledDivId);
-        $divRumble.addEventListener('click', function (e) {
-            if (signupIsActive()) {
-                e.preventDefault();
-                e.stopPropagation();
-                return;
-            }
-        }, true);
-    }
     //assert($signupCloseBtn, 'signupCloseBtn not found')
     //assert($signup, 'signup not found')
     setTimeout(() => {
         $signup.classList.add('active')
     }, delay)
-    $signupCloseBtn.addEventListener('click', (e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        signupDismissed()
-    })
-    let $btnPrivacyPolicy = document.querySelector('#signup-privacy-statement')
-    $btnPrivacyPolicy.addEventListener('click', (e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        let $text = document.querySelector('#text-privacy-policy')
-        dialogMessage($text.innerHTML)
-    })
 }
 
