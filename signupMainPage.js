@@ -116,10 +116,9 @@ input[type="name"] {
 }
 
 #signup input[type="submit"]:hover {
-    color: #1e929f; /* Text color turns green on hover */
+    color: black;
     background-color: #FFFFFF; /* Background becomes white on hover */
-    border-color: #FFFFFF; /* Border color becomes white on hover */
-    box-shadow: inset 0 0 0 2px #eaeaea;
+    border-color: #1e929f; /* Border color becomes white on hover */
 }
 
 #signup>h2 {
