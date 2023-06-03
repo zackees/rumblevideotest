@@ -61,6 +61,12 @@ let signupHtmlText = `
     border: 1px solid rgba(128, 128, 128, 80%);
 }
 
+#dialogBox button {
+    border-radius: 2px;
+    border: 1px solid rgba(128, 128, 128, 80%);
+    background-color: rgba(250, 250, 250, 97%);
+}
+
 #signup p,
 input {
     font-family: 'Poppins', sans-serif;
