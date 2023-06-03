@@ -110,8 +110,14 @@ input[type="name"] {
     letter-spacing: .10em;
     font-weight: 500;
     color: #1e929f;
+    background-color: #FFFFFF; /* This is white. You can adjust it to be more whitish if you like. */
     box-shadow: inset 0 0 0 2px #eaeaea;
+    transition: background-color 0.5s, color 0.5s; /* This makes the color change animate smoothly over half a second */
+}
 
+#signup input[type="submit"]:hover {
+    color: #FFFFFF; /* This makes the text turn white when you hover */
+    background-color: #1e929f;
 }
 
 #signup>h2 {
