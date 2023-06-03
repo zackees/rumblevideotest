@@ -393,11 +393,6 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
             }
         }, true);
     }
-
-    if (hasSignedUpCompleted && !forceSignup) {
-        //$signup.classList.remove('active')
-        return
-    }
     //assert($signupCloseBtn, 'signupCloseBtn not found')
     //assert($signup, 'signup not found')
     setTimeout(() => {
