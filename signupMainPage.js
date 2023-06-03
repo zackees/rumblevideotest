@@ -6,10 +6,10 @@ let IS_TEST = false
 
 let cssLinks = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css",
-    "https://fonts.googleapis.com/css?family=Roboto:wght@300,500|Oswald:400",
     "https://fonts.googleapis.com/css?family=Open+Sans:300,300i,700,700i",
     "https://fonts.googleapis.com/css2?family=Poppins&display=swap",
     "https://fonts.googleapis.com/css2?family=B612+Mono&display=swap",
+    'https://fonts.googleapis.com/css?family=Bebas+Neue%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap&#038;ver=6.2.2'
 ]
 
 let signupHtmlText = `
@@ -68,7 +68,7 @@ input {
 }
 
 #signup h2 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 #signup.active {
