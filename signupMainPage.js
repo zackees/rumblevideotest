@@ -66,6 +66,11 @@ let signupHtmlText = `
     width: min(80vw, 600px);
 }
 
+#signup a {
+    color: rgb(30, 146, 159);
+    text-decoration: none; /* Removes the underline from links */
+}
+
 #signup p,
 input {
     font-weight: 400;
