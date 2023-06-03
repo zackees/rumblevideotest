@@ -105,7 +105,7 @@ input[type="name"] {
 
 #signup input[type="submit"] {
     padding: .7em 1em .7em 1em;
-    border: 1px solid #1e929f; /* Border color is the same as the background color */
+    border: 2px solid #1e929f; /* Border color is the same as the background color */
     border-radius: 2px;
     font-size: 1.2em;
     text-transform: uppercase;
