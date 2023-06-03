@@ -5,5 +5,8 @@ HERE = os.path.dirname(__file__)
 os.chdir(HERE)
 
 PORT = 7000
-webbrowser.open(f'http://localhost:{PORT}?signup=true')
-os.system(f'python -m http.server {PORT}')
+webbrowser.open(f'http://localhost:{PORT}/mainpage.html')
+try:
+    os.system(f'python -m http.server {PORT}')
+except KeyboardInterrupt:
+    pass
