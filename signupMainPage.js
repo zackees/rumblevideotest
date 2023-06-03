@@ -103,21 +103,23 @@ input[type="name"] {
 
 #signup input[type="submit"] {
     padding: .7em 1em .7em 1em;
-    border: 1px solid rgb(119, 119, 119);
+    border: 1px solid #1e929f; /* Border color is the same as the background color */
     border-radius: 2px;
     font-size: 1.2em;
     text-transform: uppercase;
     letter-spacing: .10em;
     font-weight: 500;
-    color: #1e929f;
-    background-color: #FFFFFF; /* This is white. You can adjust it to be more whitish if you like. */
-    box-shadow: inset 0 0 0 2px #eaeaea;
-    transition: background-color 0.5s, color 0.5s; /* This makes the color change animate smoothly over half a second */
+    color: #FFFFFF; /* Text color is now white */
+    background-color: #1e929f; /* Background color is the specified green */
+
+    transition: background-color 0.5s, color 0.5s, border-color 0.5s; /* Added transition for border color */
 }
 
 #signup input[type="submit"]:hover {
-    color: #FFFFFF; /* This makes the text turn white when you hover */
-    background-color: #1e929f;
+    color: #1e929f; /* Text color turns green on hover */
+    background-color: #FFFFFF; /* Background becomes white on hover */
+    border-color: #FFFFFF; /* Border color becomes white on hover */
+    box-shadow: inset 0 0 0 2px #eaeaea;
 }
 
 #signup>h2 {
