@@ -62,6 +62,11 @@ let signupHtmlText = `
     background-color: rgba(250, 250, 250, 97%);
 }
 
+#signup {
+    width: min(80vw, 600px);
+    height: min(60vh, 400px);
+}
+
 #signup p,
 input {
     font-weight: 400;
