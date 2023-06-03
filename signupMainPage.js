@@ -142,7 +142,7 @@ input[type="name"] {
 </style>
 
 <section id="signup">
-<div id="signup-close-btn" class="close-btn" style="display: none;">
+<div id="signup-close-btn" class="close-btn">
     <i class="fa fa-times"></i>
 </div>
 <h2>Plandemic 3: The Great Awakening</h2>
