@@ -50,7 +50,7 @@ let signupHtmlText = `
 }
 
 #dialogBox * {
-    font-weight: normal;
+    font-weight: 400;
     color: rgba(128, 128, 128);
     font-family: 'Poppins', sans-serif;
 
@@ -64,6 +64,7 @@ let signupHtmlText = `
 
 #signup p,
 input {
+    font-weight: 400;
     font-family: 'Poppins', sans-serif;
     font-size: 16pt;
     color: #666666;
@@ -86,6 +87,7 @@ input {
 
 #signup input {
     font-size: 16pt;
+    font-color: #666666;
 }
 
 
