@@ -181,11 +181,24 @@ input[type="name"] {
     padding: 0;
 }
 
+#Layer_1 {
+    margin: 2px;
+}
+
 </style>
 
 <section id="signup">
 <div id="signup-close-btn" class="close-btn">
-    <div style="font-family: monospace;">x</div>
+    <!-- SVG goes here as the close button -->
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 365.7 365.7" style="enable-background:new 0 0 365.7 365.7; width: 12px; height: 12px;" xml:space="preserve">
+        <style type="text/css">
+            .st0{fill:#999;} /* change SVG color to match the close button color */
+        </style>
+        <path class="st0" d="M243.2,182.9L356.3,69.7c12.5-12.5,12.5-32.8,0-45.2L341.2,9.4c-12.5-12.5-32.8-12.5-45.2,0L182.9,122.5
+            L69.7,9.4C57.2-3.1,37-3.1,24.5,9.4L9.4,24.5C-3.1,37-3.1,57.2,9.4,69.7l113.2,113.2L9.4,296c-12.5,12.5-12.5,32.8,0,45.2l15.1,15.1
+            c12.5,12.5,32.8,12.5,45.2,0l113.1-113.1L296,356.3c12.5,12.5,32.8,12.5,45.2,0l15.1-15.1c12.5-12.5,12.5-32.8,0-45.2L243.2,182.9z"/>
+    </svg>
 </div>
 <h2>Plandemic 3: The Great Awakening</h2>
 <p>To unlock the full documentary and begin watching, please enter your email below. Your exclusive access to Plandemic 3 starts here!</p>
