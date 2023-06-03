@@ -236,7 +236,7 @@ function signupDismissed() {
         $signup.style.display = 'none'
     }, 1000)
     _signupCallbackDismissed()
-    const url = "https://plandemicseries.com/watchparty/"
+    const url = "https://plandemicseries.com/watch-the-great-awakening-movie/"
     // open website in new tab
     window.open(url, '_blank').focus();
 }
