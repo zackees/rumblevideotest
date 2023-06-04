@@ -86,6 +86,12 @@ input {
     color: black;
 }
 
+@media (max-width: 800px) {
+    #signup h2 {
+        font-size: 30pt !important;
+    }
+}
+
 #signup.active {
     opacity: 1;
     pointer-events: all;

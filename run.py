@@ -4,7 +4,7 @@ import os
 HERE = os.path.dirname(__file__)
 os.chdir(HERE)
 
-PORT = 7000
+PORT = 7001
 webbrowser.open(f'http://localhost:{PORT}/mainpage.html')
 try:
     os.system(f'python -m http.server {PORT}')
