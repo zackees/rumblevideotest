@@ -220,7 +220,7 @@ input[type="name"] {
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
             name="b_f8f8f8f8f8f8f8f8f8f8f8_f8f8f8f8f8f8f8f8f8f8f8" tabindex="-1" value=""></div>
     <div class="clear">
-        <input type="submit" value="Watch Now" id="btn-signup" class="button">
+        <input type="submit" value="Watch For Free" id="btn-signup" class="button">
     </div>
     <p id="signup-privacy-statement">
         By signing up, you agree to receive occasional emails from us and may choose to unsubscribe at anytime.
