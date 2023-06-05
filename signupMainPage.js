@@ -206,8 +206,8 @@ input[type="name"] {
             c12.5,12.5,32.8,12.5,45.2,0l113.1-113.1L296,356.3c12.5,12.5,32.8,12.5,45.2,0l15.1-15.1c12.5-12.5,12.5-32.8,0-45.2L243.2,182.9z"/>
     </svg>
 </div>
-<h2>Plandemic 3: The Great Awakening</h2>
-<p>To unlock the full documentary and begin watching, please enter your email below. Your exclusive access to Plandemic 3 starts here!</p>
+<h2 class="signup-header">Plandemic 3: The Great Awakening</h2>
+<p class="signup-p-unlock">To unlock the full documentary and begin watching, please enter your email below. Your exclusive access to Plandemic 3 starts here!</p>
 <!-- Input form for first name and email -->
 <form method="get" accept-charset="UTF-8" style="margin-bottom: 0px;">
     <div>
@@ -233,7 +233,7 @@ input[type="name"] {
             email for film updates, but we won't share it with anyone. You can unsubscribe at any time.</p>
         <p style="font-size:10px;">If you have questions about this Privacy Policy, please contact us.</p>
     </div>
-    <p style="font-size:16px;margin-top:1em;margin-bottom:0;">
+    <p style="font-size:16px;margin-top:1em;margin-bottom:0;" class="signup-tax-deductabile">
         Support us with a tax-deductable <a href="https://plandemicseries.com/donate" target="_blank">donation.</a>
     </p>
 </form>
@@ -243,6 +243,13 @@ input[type="name"] {
 </dialog>
 </section>
 `
+
+// classes:
+// signup-tax-deductabile
+// signup-header
+// signup-p-unlock
+// singup_first_name
+// signup_email
 
 function signupLoadCssResources() {
     // attach css links to head
