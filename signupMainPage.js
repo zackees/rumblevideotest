@@ -234,7 +234,7 @@ input[type="name"] {
         <p style="font-size:10px;">If you have questions about this Privacy Policy, please contact us.</p>
     </div>
     <p style="font-size:16px;margin-top:1em;margin-bottom:0;" class="signup-tax-deductabile">
-        Support us with a tax-deductable <a href="https://plandemicseries.com/donate" target="_blank">donation.</a>
+        Support us with a tax-deductible <a href="https://plandemicseries.com/donate" target="_blank">donation.</a>
     </p>
 </form>
 <dialog id="dialogBox">
