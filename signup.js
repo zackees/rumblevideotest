@@ -4,6 +4,8 @@ let $signupCloseBtn = null
 let $signup = null
 let IS_TEST = false
 
+let SUCCESS_URL = "https://plandemicseries.com/watchparty/"
+
 let cssLinks = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css",
     "https://fonts.googleapis.com/css?family=Roboto:wght@300,500|Oswald:400",
@@ -235,9 +237,8 @@ function signupDismissed() {
         $signup.style.display = 'none'
     }, 1000)
     _signupCallbackDismissed()
-    const url = "https://plandemicseries.com/watchparty/"
     // open website in new tab
-    window.open(url, '_blank').focus();
+    window.open(SUCCESS_URL, '_blank').focus();
 }
 
 function dialogMessage(message) {
@@ -247,25 +248,31 @@ function dialogMessage(message) {
     dialog.showModal();
 }
 
-function initSignup(rumbledDivId, delay, cbDismissed) {
-    
-    function getCookie(name) {
-        let cookieArr = document.cookie.split(";");
+function getCookie(name) {
+    let cookieArr = document.cookie.split(";");
 
-        // Loop through the array elements
-        for (let i = 0; i < cookieArr.length; i++) {
-            let cookiePair = cookieArr[i].split("=");
+    // Loop through the array elements
+    for (let i = 0; i < cookieArr.length; i++) {
+        let cookiePair = cookieArr[i].split("=");
 
-            /* Removing whitespace at the beginning of the cookie `name`
-            and compare it with the given string */
-            if (name == cookiePair[0].trim()) {
-                // Decode the cookie value and return
-                return decodeURIComponent(cookiePair[1]);
-            }
+        /* Removing whitespace at the beginning of the cookie `name`
+        and compare it with the given string */
+        if (name == cookiePair[0].trim()) {
+            // Decode the cookie value and return
+            return decodeURIComponent(cookiePair[1]);
         }
+    }
 
-        // Return null if not found
-        return null;
+    // Return null if not found
+    return null;
+}
+
+function initSignup(rumbledDivId, delay, cbDismissed) {
+    let hasSignedUpCompleted = getCookie("hasSignedUpCompleted")
+    if (hasSignedUpCompleted) {
+        // open website in new tab
+        window.open(SUCCESS_URL, '_blank').focus();
+        return;
     }
     delay = delay || 500
     _signupCallbackDismissed = cbDismissed || function () { }
@@ -289,7 +296,9 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
     $target.insertAdjacentHTML('afterend', signupHtmlText);
     $signup = document.querySelector('#signup')
     $signupCloseBtn = document.querySelector('#signup-close-btn')
-    let hasSignedUpCompleted = getCookie("hasSignedUpCompleted")
+
+
+
     const urlParams = new URLSearchParams(window.location.search);
     // Check if the "signup" parameter is set to "True"
     const signupParam = urlParams.get('signup');
