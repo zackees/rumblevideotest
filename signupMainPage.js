@@ -220,7 +220,7 @@ input[type="name"] {
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
             name="b_f8f8f8f8f8f8f8f8f8f8f8_f8f8f8f8f8f8f8f8f8f8f8" tabindex="-1" value=""></div>
     <div class="clear">
-        <input type="submit" value="Watch For Free" id="btn-signup" class="button">
+        <input type="submit" value="WATCH & DOWNLOAD FREE" id="btn-signup" class="button">
     </div>
     <p id="signup-privacy-statement">
         By signing up, you agree to receive occasional emails from us and may choose to unsubscribe at anytime.
@@ -233,9 +233,6 @@ input[type="name"] {
             email for film updates, but we won't share it with anyone. You can unsubscribe at any time.</p>
         <p style="font-size:10px;">If you have questions about this Privacy Policy, please contact us.</p>
     </div>
-    <p style="font-size:16px;margin-top:1em;margin-bottom:0;" class="signup-tax-deductabile">
-        Support us with a tax-deductible <a href="https://plandemicseries.com/donate" target="_blank">donation.</a>
-    </p>
 </form>
 <dialog id="dialogBox">
     <p id="dialogBoxmMessage">Invalid email, please try again.</p>
