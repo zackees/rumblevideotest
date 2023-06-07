@@ -207,7 +207,7 @@ input[type="name"] {
     </svg>
 </div>
 <h2 class="signup-header">Plandemic 3: The Great Awakening</h2>
-<p class="signup-p-unlock">To unlock the full documentary and begin watching, please enter your email below. Your exclusive access to Plandemic 3 starts here!</p>
+<p class="signup-p-unlock">Enter your email below to watch or download the full movie. Your exclusive access to The Great Awakening starts here!</p>
 <!-- Input form for first name and email -->
 <form method="get" accept-charset="UTF-8" style="margin-bottom: 0px;">
     <div>
