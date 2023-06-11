@@ -356,6 +356,11 @@ function signupHasCompleted() {
 let gSignupInitialized = false
 
 function initSignup(rumbledDivId, delay, cbDismissed) {
+    let hasSignedUpCompleted = signupHasCompleted()
+    if (hasSignedUpCompleted) {
+        window.open("https://plandemicseries.com/watch-the-great-awakening-movie/", '_blank').focus();
+        return;
+    }
     if (!gSignupInitialized) {
         gSignupInitialized = true
         delay = delay || 0
@@ -369,7 +374,7 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
         $target.insertAdjacentHTML('afterend', signupHtmlText);
         $signup = document.querySelector('#signup')
         $signupCloseBtn = document.querySelector('#signup-close-btn')
-        let hasSignedUpCompleted = signupHasCompleted()
+
         const urlParams = new URLSearchParams(window.location.search);
         // Check if the "signup" parameter is set to "True"
         const signupParam = urlParams.get('signup');
