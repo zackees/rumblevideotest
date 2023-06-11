@@ -333,35 +333,34 @@ function dialogMessage(message) {
     dialog.showModal();
 }
 
+function signupHasCompleted() {
+    function getCookie(name) {
+        let cookieArr = document.cookie.split(";");
+        // Loop through the array elements
+        for (let i = 0; i < cookieArr.length; i++) {
+            let cookiePair = cookieArr[i].split("=");
+
+            /* Removing whitespace at the beginning of the cookie `name`
+            and compare it with the given string */
+            if (name == cookiePair[0].trim()) {
+                // Decode the cookie value and return
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+        // Return null if not found
+        return null;
+    }
+    return getCookie("hasSignedUpCompleted")
+}
+
 let gSignupInitialized = false
 
 function initSignup(rumbledDivId, delay, cbDismissed) {
     if (!gSignupInitialized) {
         gSignupInitialized = true
-        function getCookie(name) {
-            let cookieArr = document.cookie.split(";");
-
-            // Loop through the array elements
-            for (let i = 0; i < cookieArr.length; i++) {
-                let cookiePair = cookieArr[i].split("=");
-
-                /* Removing whitespace at the beginning of the cookie `name`
-                and compare it with the given string */
-                if (name == cookiePair[0].trim()) {
-                    // Decode the cookie value and return
-                    return decodeURIComponent(cookiePair[1]);
-                }
-            }
-
-            // Return null if not found
-            return null;
-        }
         delay = delay || 0
         _signupCallbackDismissed = cbDismissed || function () {}
         signupLoadCssResources()
-
-
-
         // Insert the dom so that we can add event listeners to it.
         let $target = document.getElementById(rumbledDivId);
         if ($target === null) {
@@ -370,7 +369,7 @@ function initSignup(rumbledDivId, delay, cbDismissed) {
         $target.insertAdjacentHTML('afterend', signupHtmlText);
         $signup = document.querySelector('#signup')
         $signupCloseBtn = document.querySelector('#signup-close-btn')
-        let hasSignedUpCompleted = getCookie("hasSignedUpCompleted")
+        let hasSignedUpCompleted = signupHasCompleted()
         const urlParams = new URLSearchParams(window.location.search);
         // Check if the "signup" parameter is set to "True"
         const signupParam = urlParams.get('signup');
